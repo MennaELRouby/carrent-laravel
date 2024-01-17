@@ -1,4 +1,4 @@
-				@extends('layouts.admin')
+				@extends('admin.layouts.admin')
 				<!-- inside menuprofile.blade.php-->
 				<!-- start body-->
 				<!-- class=container body / Containter  /main container-->
@@ -149,5 +149,3 @@
 				<!-- footer content -->
 
 				<!-- /footer content -->
-				</div>
-				</div>

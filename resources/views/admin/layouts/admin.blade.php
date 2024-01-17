@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-@include('includes.head')
-@include('includes.menuprofile')
-@include('includes.sidebar')
-@include('includes.menufooter')
-@include('includes.topnav')
+@include('admin.includes.head')
+@include('admin.includes.menuprofile')
+@include('admin.includes.sidebar')
+@include('admin.includes.menufooter')
+@include('admin.includes.topnav')
 
 
 @yield('content')
 
 
-@include('includes.footer')
-@include('includes.jsFoooter')
+@include('admin.includes.footer')
+@include('admin.includes.jsFooter')
 </body>
 
 </html>
