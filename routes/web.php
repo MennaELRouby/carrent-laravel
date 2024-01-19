@@ -14,8 +14,32 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
+Route::get('about', function () {
+    return view('about');
+});
+Route::get('blog', function () {
+    return view('blog');
+});
+Route::get('contact', function () {
+    return view('contact');
+});
+Route::get('listing', function () {
+    return view('listing');
+});
+Route::get('single', function () {
+    return view('single');
+});
+Route::get('testimonials', function () {
+    return view('testimonials');
+});
+
+Route::get('main', function () {
+    return view('main');
+});
+
+
 Route::prefix('admin')->group(function () {
     Route::get('addcar', function () {
         return view('admin/addCar');
