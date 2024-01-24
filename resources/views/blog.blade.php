@@ -17,6 +17,7 @@
     </div>
   </div>
 </div>
+@include('includes.pagination')
 
 @include('includes.bestCarRent')
 @section('footer')
