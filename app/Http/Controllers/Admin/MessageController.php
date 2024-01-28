@@ -3,17 +3,21 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-
+use App\Models\Message;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class MessageController extends Controller
 {
+    private $columns = ['name', 'email', 'content'];
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('admin/messages');
+        $msg = Message::get();
+        return view('admin/messages', compact('msg'));
     }
 
     /**
@@ -36,7 +40,8 @@ class MessageController extends Controller
      */
     public function show(string $id)
     {
-        return view('admin/showMessage');
+        $msg = Message::findOrFail($id);
+        return view('admin/showMessage', compact('msg'));
     }
 
     /**
@@ -58,8 +63,9 @@ class MessageController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(string $id): RedirectResponse
     {
-        //
+        Message::where('id', $id)->delete();
+        return redirect('admin/messages');
     }
 }

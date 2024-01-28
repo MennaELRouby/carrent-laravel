@@ -3,17 +3,20 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-
+use App\Models\Category;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
+    //private $columns = ['cat_name'];
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('admin/categories');
+        $category = Category::get();
+        return view('admin/categories', compact('category'));
     }
 
     /**
@@ -27,9 +30,14 @@ class CategoryController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request): RedirectResponse
     {
-        //
+        $messages = $this->messages();
+        $data = $request->validate([
+            'cat_name' => 'required|string'
+        ], $messages);
+        Category::create($data);
+        return redirect('admin/addcategory');
     }
 
     /**
@@ -37,7 +45,6 @@ class CategoryController extends Controller
      */
     public function show(string $id)
     {
-        //
     }
 
     /**
@@ -45,22 +52,37 @@ class CategoryController extends Controller
      */
     public function edit(string $id)
     {
-        return view('admin/editCategory');
+        $category = Category::findOrFail($id);
+        return view('admin/editCategory', compact('category'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, string $id): RedirectResponse
     {
-        //
+        $messages = $this->messages();
+        $data = $request->validate([
+            'cat_name' => 'required|string'
+        ], $messages);
+        Category::where('id', $id)->update($data);
+        return redirect('admin/categories');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(string $id): RedirectResponse
     {
-        //
+        Category::where('id', $id)->delete();
+        return redirect('admin/categories');
+    }
+
+    public function messages()
+    {
+        return [
+            'cat_name.required' => 'Category name is required',
+            'cat_name.string' => 'Category name should be string',
+        ];
     }
 }
