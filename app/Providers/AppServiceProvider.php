@@ -2,7 +2,10 @@
 
 namespace App\Providers;
 
+use App\Models\Message;
 use Illuminate\Support\ServiceProvider;
+
+
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -19,6 +22,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        view()->share('count', Message::where('vmsg', '=', 0)->count());
+        view()->share('msgp', Message::where('vmsg', '=', 0)->get());
     }
 }

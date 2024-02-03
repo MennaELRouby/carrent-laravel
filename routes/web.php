@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\CarRentalController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\Admin\CarController;
+use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\MessageController;
 use App\Http\Controllers\Admin\TestimonialController;
@@ -20,36 +23,31 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-})->name('index');
-Route::get('about', function () {
-    return view('about');
-})->name('about');
-Route::get('blog', function () {
-    return view('blog');
-})->name('blog');
-Route::get('contact', function () {
-    return view('contact');
-})->name('contact');
-Route::get('listing', function () {
-    return view('listing');
-})->name('listing');
-Route::get('single', function () {
-    return view('single');
-})->name('single');
-Route::get('testimonials', function () {
-    return view('testimonials');
-})->name('testimonials');
+/*****************************CarRental Web Routes*********************************/
 
-Route::get('main', function () {
-    return view('main');
-})->name('main');
 
-//Route::fallback(fn () => redirect('main'));
+Route::get('/', [CarRentalController::class, 'index'])->name('index');
+Route::get('listing', [CarRentalController::class, 'listing'])->name('listing');
+Route::get('testimonials', [CarRentalController::class, 'testimonial'])->name('Wtestimonials');
+Route::get('blog', [CarRentalController::class, 'blog'])->name('blog');
+Route::get('single/{id}', [CarRentalController::class, 'single'])->name('single');
+Route::get('testimonials', [CarRentalController::class, 'testimonial'])->name('Wtestimonials');
+Route::get('blog', [CarRentalController::class, 'blog'])->name('blog');
+Route::get('about', [CarRentalController::class, 'about'])->name('about');
 
-/*****************************Admin Dashboard*********************************/
-Route::prefix('admin')->group(function () {
+Route::get('contact', [MessageController::class, 'create'])->name('contact');
+Route::post('contact', [MessageController::class, 'store'])->name('messagesent');
+
+Route::post('comment', [CarRentalController::class, 'comment'])->name('comment');
+
+
+//Route::fallback(fn () => redirect('/'));
+
+/*****************************Car Rental Admin Dashboard Routes*********************************/
+Route::group(['prefix' => 'admin', 'middleware' => ['verified']], function () {
+
+    Route::get('/', [HomeController::class, 'index'])->name('home');
+
     Route::get('addcar', [CarController::class, 'create'])->name('addcar');
     Route::get('cars', [CarController::class, 'index'])->name('cars');
     Route::get('editcar/{id}', [CarController::class, 'edit'])->name('editcar');
@@ -88,3 +86,4 @@ Route::prefix('admin')->group(function () {
     Route::get('showmessage/{id}', [MessageController::class, 'show'])->name('showmessage');
     Route::get('deletemessage/{id}', [MessageController::class, 'destroy'])->name('deletemessage');
 });
+Auth::routes(['verify' => true]);

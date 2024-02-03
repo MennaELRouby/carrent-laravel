@@ -9,8 +9,10 @@ class Message extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'name',
+        'fname',
+        'lname',
         'email',
         'content',
+        'vmsg',
     ];
 }

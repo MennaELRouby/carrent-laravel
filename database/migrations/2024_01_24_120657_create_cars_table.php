@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('price', 100);
             $table->boolean('published');
             $table->string('image', 100);
-            $table->foreignId('cat_id')->constrained('categories');
+            $table->foreignId('cat_id')->constrained('categories')->onDelete('restrict');
         });
     }
 

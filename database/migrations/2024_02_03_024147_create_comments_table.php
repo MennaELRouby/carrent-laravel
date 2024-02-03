@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('name', 100)->nullable();
             $table->string('email')->nullable();
-            $table->string('website', 100);
-            $table->text('content', 1000);
+            $table->string('website', 100)->nullable();
+            $table->text('content', 1000)->nullable();
             $table->foreignId('car_id')->constrained('cars')->onDelete('restrict');
             $table->timestamps();
         });
