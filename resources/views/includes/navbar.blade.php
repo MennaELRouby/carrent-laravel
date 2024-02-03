@@ -4,12 +4,12 @@
 
     <nav class="site-navigation text-right ml-auto d-none d-lg-block" role="navigation">
         <ul class="site-menu main-menu js-clone-nav ml-auto ">
-            <li class="active"><a href="index.html" class="nav-link">Home</a></li>
-            <li><a href="listing.html" class="nav-link">Listing</a></li>
-            <li><a href="testimonials.html" class="nav-link">Testimonials</a></li>
-            <li><a href="blog.html" class="nav-link">Blog</a></li>
-            <li><a href="about.html" class="nav-link">About</a></li>
-            <li><a href="contact.html" class="nav-link">Contact</a></li>
+            <li class="active"><a href="{{route('index')}}" class="nav-link">Home</a></li>
+            <li><a href="{{route('listing')}}" class="nav-link">Listing</a></li>
+            <li><a href="{{route('testimonials')}}" class="nav-link">Testimonials</a></li>
+            <li><a href="{{route('blog')}}" class="nav-link">Blog</a></li>
+            <li><a href="{{route('about')}}" class="nav-link">About</a></li>
+            <li><a href="{{route('contact')}}" class="nav-link">Contact</a></li>
         </ul>
     </nav>
 </div>

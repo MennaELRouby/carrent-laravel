@@ -1,24 +1,37 @@
 <div class="row">
     <div class="col-lg-8 mb-5">
-        <form action="#" method="post">
+        <form action="{{route('messagesent')}}" method="POST">
+            @csrf
             <div class="form-group row">
                 <div class="col-md-6 mb-4 mb-lg-0">
-                    <input type="text" class="form-control" placeholder="First name">
+                    <input type="text" class="form-control" placeholder="First name" name="fname">
+                    @error('fname')
+                    {{$message}}
+                    @enderror
                 </div>
                 <div class="col-md-6">
-                    <input type="text" class="form-control" placeholder="Last name">
+                    <input type="text" class="form-control" placeholder="Last name" name="lname">
+                    @error('lname')
+                    {{$message}}
+                    @enderror
                 </div>
             </div>
 
             <div class="form-group row">
                 <div class="col-md-12">
-                    <input type="text" class="form-control" placeholder="Email address">
+                    <input type="text" class="form-control" placeholder="Email address" name="email">
+                    @error('email')
+                    {{$message}}
+                    @enderror
                 </div>
             </div>
 
             <div class="form-group row">
                 <div class="col-md-12">
-                    <textarea name="" id="" class="form-control" placeholder="Write your message." cols="30" rows="10"></textarea>
+                    <textarea name="content" id="" class="form-control" placeholder="Write your message." cols="30" rows="10"></textarea>
+                    @error('content')
+                    {{$message}}
+                    @enderror
                 </div>
             </div>
             <div class="form-group row">

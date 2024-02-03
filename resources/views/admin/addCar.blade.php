@@ -24,6 +24,17 @@
 				<!-- page content -->
 				<div class="x_content">
 					<br />
+					@if(count($category) == 0)
+					<div class="container text-center">
+						<div class="row justify-content-center">
+							<div class="col-lg-6">
+								<h6 class="display-6">No Categories Field </h6>
+								<p class="mb-4">Add Category first then add Cars.</p>
+								<a class="btn btn-primary rounded-pill py-3 px-5" href="{{route('addcategory')}}">Add Category</a>
+							</div>
+						</div>
+					</div>
+					@else
 					<form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" action="{{route('car')}}" method="post" enctype="multipart/form-data">
 						@csrf
 						<div class="item form-group">
@@ -76,7 +87,7 @@
 						<div class="item form-group">
 							<label for="price" class="col-form-label col-md-3 col-sm-3 label-align">Price <span>*</span></label>
 							<div class="col-md-6 col-sm-6 ">
-								<input id="price" class="form-control" type="number" name="price">
+								<input id="price" class="form-control" type="text" name="price">
 								@error('price')
 								{{$message}}
 								@enderror
@@ -118,12 +129,14 @@
 						<div class="ln_solid"></div>
 						<div class="item form-group">
 							<div class="col-md-6 col-sm-6 offset-md-3">
-								<button class="btn btn-primary" type="button">Cancel</button>
+								<a href="{{route('cars')}}"><button class="btn btn-primary" type="button">Cancel</button></a>
 								<button type="submit" class="btn btn-success">Add</button>
 							</div>
 						</div>
 
 					</form>
+					@endif
+
 				</div>
 				</div>
 				</div>

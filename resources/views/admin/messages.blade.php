@@ -20,7 +20,7 @@
           <tbody>
             @foreach($msg as $data)
             <tr>
-              <td>{{$data->name}}</td>
+              <td>{{$data->fname}} {{$data->lname}}</td>
               <td>{{$data->email}}</td>
               <td><a href="showmessage/{{$data->id}}"><img src="{{asset('assets/admin/images/edit.png')}}" alt="show"></a></td>
               <td><a href="deletemessage/{{$data->id}}" onclick="return confirm('Are you sure you want to delete?')"><img src=" {{asset('assets/admin/images/delete.png')}}" alt="Delete"></a></td>

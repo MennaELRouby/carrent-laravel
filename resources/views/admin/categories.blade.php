@@ -23,7 +23,11 @@
             <tr>
               <td>{{$data->cat_name}}</td>
               <td><a href="editcategory/{{$data->id}}"><img src="{{asset('assets/admin/images/edit.png')}}" alt="Edit"></a></td>
+              @if(($data->car->count())==0)
               <td><a href="deletecategory/{{$data->id}}" onclick="return confirm('Are you sure you want to delete?')"><img src=" {{asset('assets/admin/images/delete.png')}}" alt="Delete"></a></td>
+              @else
+              <td><a href="#" onclick="return alert('Cannot Delete {{$data->cat_name}} There are Cars related to this category')"><img src=" {{asset('assets/admin/images/delete.png')}}" alt="Delete"></a></td>
+              @endif
             </tr>
             @endforeach
           </tbody>

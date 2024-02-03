@@ -7,12 +7,12 @@
 <div class="row">
   <div class="col-md-12 col-sm-12 ">
     <div class="x_panel">
-      <h2>Full Name: {{$msg->fname}}&nbsp;{{$msg->lname}}</h2>
+      <h2>Full Name: {{$fname}}&nbsp;{{$lname}}</h2>
       <br>
-      <h2>Email: {{$msg->email}}</h2>
+      <h2>Email: {{$email}}</h2>
       <br>
       <h2>Message Content:</h2>
-      <p>{{$msg->content}}</p>
+      <p>{{$content}}</p>
     </div>
   </div>
 </div>

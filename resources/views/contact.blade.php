@@ -10,7 +10,7 @@
 
         <div class="intro">
           <h1><strong>Contact</strong></h1>
-          <div class="custom-breadcrumbs"><a href="index.html">Home</a> <span class="mx-2">/</span> <strong>Contact</strong></div>
+          <div class="custom-breadcrumbs"><a href="{{route('index')}}">Home</a> <span class="mx-2">/</span> <strong>Contact</strong></div>
         </div>
 
       </div>

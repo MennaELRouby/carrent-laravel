@@ -23,7 +23,7 @@
 @include('includes.meetThem')
 @include('includes.carListing')
 @include('includes.features')
-@include('includes.testimonials')
+@include('includes.tstmnlListing')
 
 @section('footer')
 @include('includes.rentCarNow')
