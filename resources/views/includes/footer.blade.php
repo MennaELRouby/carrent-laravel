@@ -4,10 +4,16 @@
             <div class="col-lg-3">
                 <h2 class="footer-heading mb-4">About Us</h2>
                 <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
+                <p><strong>
+                        Menn El Rouby <br>
+                        Backend Developer <br>
+                    </strong>
+                    My Links down below
+                </p>
                 <ul class="list-unstyled social">
                     <li><a href="https://github.com/MennaELRouby"><span class="icon-github"></span></a></li>
                     <li><a href="mailto:roubymenna@gmail.com?subject=Hi&body=Dear%20Ms.%20Menna"><span class="icon-envelope"></span></a></li>
-                    <li><a href="#"><span class="icon-twitter"></span></a></li>
+                    <li><a href="https://twitter.com/RoubyMenna"><span class="icon-twitter"></span></a></li>
                     <li><a href="https://www.linkedin.com/in/menna-rouby/"><span class="icon-linkedin"></span></a></li>
                 </ul>
             </div>
