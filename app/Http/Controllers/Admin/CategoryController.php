@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\Car;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
@@ -15,7 +16,11 @@ class CategoryController extends Controller
      */
     public function index()
     {
+
+        // $car = Car::select('cat_id')->where('cat_id', '=', 'Categories.id')->get()->array();
+
         $category = Category::get();
+        // return dd($car);
         return view('admin/categories', compact('category'));
     }
 

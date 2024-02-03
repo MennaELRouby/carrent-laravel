@@ -25,12 +25,13 @@ class UserController extends Controller
      */
     public function create()
     {
+
         return view('admin/addUser');
     }
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request): RedirectResponse
+    public function store(Request $request)
     {
         $messages = $this->messages();
         $request->validate([
@@ -41,6 +42,8 @@ class UserController extends Controller
         ], $messages);
         $data = $request->only($this->columns);
         $data['active'] = isset($request['active']);
+        $data['email_verified_at'] = date('Y-m-d H:i:s');;
+        // return dd($data);
         User::create($data);
         return redirect('admin/users');
     }

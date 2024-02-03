@@ -7,10 +7,12 @@ use App\Models\Message;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\ContactMail;
 
 class MessageController extends Controller
 {
-    private $columns = ['name', 'email', 'content'];
+    private $columns = ['fname', 'lname', 'email', 'content', 'vmsg'];
     /**
      * Display a listing of the resource.
      */
@@ -25,6 +27,7 @@ class MessageController extends Controller
      */
     public function create()
     {
+        return view('contact');
     }
 
     /**
@@ -32,16 +35,29 @@ class MessageController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->validate([
+            'fname' => 'required|string|max:255',
+            'lname' => 'required|string|max:255',
+            'email' => 'required|email',
+            'content' => 'required|string',
+        ]);
+        Message::create($data);
+        Mail::to('roubymenna@gmail.com')->send(new ContactMail($data));
+
+        return redirect('contact');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(string $id, Request $request)
     {
         $msg = Message::findOrFail($id);
-        return view('admin/showMessage', compact('msg'));
+        $data = $request->only($this->columns);
+        $data['vmsg'] = 1;
+        Message::where('id', $id)->update($data);
+        //return dd($data);
+        return view('admin/showMessage', compact(['msg', 'data']));
     }
 
     /**
