@@ -109,7 +109,7 @@ Roadmap
 
 ## AppServiceProvider
 
-    - Comment before migrate //     public function boot(): void
+    - Comment before migrate //     public function boot(): void{}
 
 ## Run db migration
 
