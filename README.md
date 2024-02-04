@@ -7,13 +7,15 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-Car Rental Web Application
+# Car Rental Web Application
 
 # Thanks for checking out the Car Rental , Through the Owner / Admin has a dashboard
 
 to add , edit, show the tables or delete the data of [car , users,categories of car, testimonials], and show frequent messages coming from the customers.
 
-# on other side the webapp has [Home , Listing , Info for each car, Testimonials, Blog, About, Contact] pages,customers can [Comments, send messages].
+# customers
+
+on other side the webapp has [Home , Listing , Info for each car, Testimonials, Blog, About, Contact] pages,customers can [Comments, send messages].
 
 # Acknowledgements
 
@@ -22,7 +24,8 @@ to add , edit, show the tables or delete the data of [car , users,categories of 
 -   [CarRental README](https://github.com/MennaELRouby/carrent-laravel/blob/main/README.md)
 
 **Use this workspace to list resources you find helpful and would like to give credit to. I've included the following**
-##Requirements workspace
+
+## Requirements workspace
 
 -   Git bash
 -   visualstudiocode - XAMPP control panel Apache HTTP Sever - Composer php dependency manager
@@ -31,7 +34,7 @@ to add , edit, show the tables or delete the data of [car , users,categories of 
 
 ---
 
-Roadmap
+# Roadmap
 
 # Install Project
 
@@ -42,10 +45,11 @@ Roadmap
 
 ## install project dependencies
 
--   Composer
-    composer install
+### Composer
 
-## install npm
+     composer install
+
+### install npm
 
     npm install
     npm run dev
@@ -70,7 +74,7 @@ Roadmap
     - cp .env .example .env
     - vim .env
 
-### Edit Configuration:
+### Edit Configuration in .env:
 
     - mail smtp:
     MAIL_MAILER=smtp
@@ -109,7 +113,9 @@ Roadmap
 
 ## AppServiceProvider
 
-    - Comment before migrate //     public function boot(): void{}
+**Make sure to comment the following function before running the migrations**
+
+    //public function boot(): void{}
 
 ## Run db migration
 
@@ -117,15 +123,17 @@ Roadmap
 
 ---
 
-# Mail: mailtrap.io
+# Mail:
+
+    - mailtrap.io
 
 ---
 
 # Run Development server
 
     php artisan serve
-    	- http://localhost/carrent-laravel/public/		- access carrental webapp
-    	- http://localhost/carrent-laravel/public/admin/		- access admin dashboard
+    	- http://localhost/carrent-laravel/public/		        # access carrental webapp
+    	- http://localhost/carrent-laravel/public/admin/		# access admin dashboard
 
 ---
 
@@ -134,17 +142,17 @@ Roadmap
 ## Development main folders
 
     -CRUD Controllers
-    	- app/Http/Controllers/CarRentalController	-contains carrental webpages controller
-    	- app/Http/Controllers/Admin		- contains all Admin controllers
-    	- app/Http/Controllers/Auth			- contains Authentications controllers
-    	 - database/migrations			 - contains all the database schema migrations
-    	 - app\Models\ 				- contains all the Eloquent models
-    	 - app\Mail\contactMail.php			- contains Envelope & mailTemplate
+    	- app/Http/Controllers/CarRentalController	    # contains carrental webpages controller
+    	- app/Http/Controllers/Admin		            # contains all Admin controllers
+    	- app/Http/Controllers/Auth			            # contains Authentications controllers
+    	 - database/migrations			                # contains all the database schema migrations
+    	 - app\Models\ 				                    # contains all the Eloquent models
+    	 - app\Mail\contactMail.php			            # contains Envelope & mailTemplate
     - Routes: routes/web.php
     	- Show All Routes
     		- $php artisan route:list
     -AppService Provider
-    	-app\Providers\AppServiceProvider.php	- Define Globla Variable
+    	-app\Providers\AppServiceProvider.php           # Define Globla Variable
 
 ## Environment variables
 
@@ -152,36 +160,46 @@ Roadmap
 
 ## **_Note_** : You can quickly set the database information and other variables in this file and have the application fully working.
 
-#DataBase overview - Tables name
-cars, categories,comments,messages,testimonials,users - Statements: - Eloquent ORM through
-Database/Eloquent/Models
-check db config: config/database.php
+# DataBase overview
+
+## Tables names
+
+    (cars, categories,comments,messages,testimonials,users)
+
+## DB Design:
+
+    - Eloquent ORM through
+            Database/Eloquent/Models
+    - check db config:
+            config/database.php
 
     - DB Relationship
-    	- cars - categorties one to many
+        	- cars - categorties one to many
 
-    		categories table
-    			| colum     | Type     | Description                       |
-    			| :-------- | :------- | :-------------------------------- |
-    			| `id`      | interger| **Required**. Id Autoincrement
-    		cars table
-    			| column    | Type     | Description                       |
-    			| :-------- | :------- | :-------------------------------- |
-    			| `cat_id`  | integer  | **Required**. foreign key
-    	- comments - cars one to many
-    		cars table
-    			| colum    | Type     | Description                       |
-    			| :--------| :------- | :-------------------------------- |
-    			| `id`     | interger | **Required**. Id Autoincrement
-    		comments table
-    			| column     | Type     | Description                       |
-    			| :--------- | :------- | :-------------------------------- |
-    			| `car_id`   | integer  | **Required**. foreign key
+        		categories table
+        			| colum     | Type     | Description                       |
+        			| :-------- | :------- | :-------------------------------- |
+        			| `id`      | interger| **Required**. Id Autoincrement
+        		cars table
+        			| column    | Type     | Description                       |
+        			| :-------- | :------- | :-------------------------------- |
+        			| `cat_id`  | integer  | **Required**. foreign key
+
+        	- comments - cars one to many
+
+        		cars table
+        			| colum    | Type     | Description                       |
+        			| :--------| :------- | :-------------------------------- |
+        			| `id`     | interger | **Required**. Id Autoincrement
+        		comments table
+        			| column     | Type     | Description                       |
+        			| :--------- | :------- | :-------------------------------- |
+        			| `car_id`   | integer  | **Required**. foreign key
 
 ---
 
 # Contact
 
-Menna El Rouby: roubymenna@gmail.com
-linkedin: https://www.linkedin.com/in/menna-rouby/
-CarRental Project: https://github.com/MennaELRouby/carrent-laravel.git
+[Menna Elrouby Mail](roubymenna@gmail.com)
+[Menna El Rouby Linkedin](https://www.linkedin.com/in/menna-rouby/)
+[CarRental Project git](https://github.com/MennaELRouby/carrent-laravel.git)
