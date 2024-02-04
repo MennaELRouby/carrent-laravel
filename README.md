@@ -158,6 +158,20 @@ on other side the webapp has [Home , Listing , Info for each car, Testimonials, 
 
     - `.env` - Environment variables can be set in this file
 
+## Parameters
+
+    - active: in user table:
+        admins can enter dashboard by email verify or by Add user and change active to 1
+                    | column     | Type  | Description                       |
+        			| :-------- | :------| :-------------------------------- |
+        			| `Active`  | boolean| **Required**. If active = 1 user can enter Dashboard else 0 These credentials do not match our records.
+
+    -published: in cars and testimonials tables
+        can't publish any recodes unless published = 1
+                    | column     | Type  | Description                       |
+        			| :-------- | :------| :-------------------------------- |
+        			| `published`  | boolean| **Required**. If only published = 1 row recodes can show on the carrental website.
+
 ## **_Note_** : You can quickly set the database information and other variables in this file and have the application fully working.
 
 # DataBase overview
