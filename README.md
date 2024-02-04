@@ -214,6 +214,8 @@ on other side the webapp has [Home , Listing , Info for each car, Testimonials, 
 
 # Contact
 
-[Menna Elrouby Mail](roubymenna@gmail.com)
-[Menna El Rouby Linkedin](https://www.linkedin.com/in/menna-rouby/)
-[CarRental Project git](https://github.com/MennaELRouby/carrent-laravel.git)
+# Menna Elrouby
+
+    - Mail: roubymenna@gmail.com
+    - [Linkedin](https://www.linkedin.com/in/menna-rouby/)
+    - [github](https://github.com/MennaELRouby/)
