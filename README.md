@@ -7,60 +7,181 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## About Laravel
+Car Rental Web Application
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+# Thanks for checking out the Car Rental , Through the Owner / Admin has a dashboard
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+to add , edit, show the tables or delete the data of [car , users,categories of car, testimonials], and show frequent messages coming from the customers.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+# on other side the webapp has [Home , Listing , Info for each car, Testimonials, Blog, About, Contact] pages,customers can [Comments, send messages].
 
-## Learning Laravel
+# Acknowledgements
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+-   [CarRental Repo](https://github.com/MennaELRouby/carrent-laravel.git)
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+-   [CarRental README](https://github.com/MennaELRouby/carrent-laravel/blob/main/README.md)
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+**Use this workspace to list resources you find helpful and would like to give credit to. I've included the following**
+##Requirements workspace
 
-## Laravel Sponsors
+-   Git bash
+-   visualstudiocode - XAMPP control panel Apache HTTP Sever - Composer php dependency manager
+-   OpenSSL PHP
+-   laravel breeze
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+---
 
-### Premium Partners
+Roadmap
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+# Install Project
 
-## Contributing
+## Clone repo in visual studio code
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+    $gh repo clone MennaELRouby/carrent-laravel
+    cd xampp/htdocs/
 
-## Code of Conduct
+## install project dependencies
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+-   Composer
+    composer install
 
-## Security Vulnerabilities
+## install npm
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+    npm install
+    npm run dev
 
-## License
+## Create enviroment config file
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+    cp .env .example .env
+
+**Make sure you set the correct database connection information before running the migrations** [Environment variables](#environment-variables)
+
+## Set Environment Variables
+
+### Path :
+
+    - Git\cmd
+    - xampp\php
+    - ComposeSetup\bin
+    - mysql\bin
+
+### create enviroment config file
+
+    - cp .env .example .env
+    - vim .env
+
+### Edit Configuration:
+
+    - mail smtp:
+    MAIL_MAILER=smtp
+    MAIL_HOST=sandbox.smtp.mailtrap.io
+    MAIL_PORT=587
+    MAIL_USERNAME=84afc2122d0c86
+    MAIL_PASSWORD=b2ff23c87f3213
+    MAIL_ENCRYPTION=STARTTLS
+    MAIL_FROM_ADDRESS="roubymenna@gmail.com"
+    MAIL_FROM_NAME="${APP_NAME}"
+
+    - DataBase Configuration
+    DB_CONNECTION=mysql
+    DB_HOST=127.0.0.1
+    DB_PORT=3306
+    DB_DATABASE=carrent_laravel
+    DB_USERNAME=root
+    DB_PASSWORD=
+
+    - Vite
+    VITE_APP_NAME="${APP_NAME}"
+    VITE_PUSHER_APP_KEY="${PUSHER_APP_KEY}"
+    VITE_PUSHER_HOST="${PUSHER_HOST}"
+    VITE_PUSHER_PORT="${PUSHER_PORT}"
+    VITE_PUSHER_SCHEME="${PUSHER_SCHEME}"
+    VITE_PUSHER_APP_CLUSTER="${PUSHER_APP_CLUSTER}"
+
+## Configure Authentication
+
+    - composer require laravel/ui
+    - $php artisan ui bootstrap --auth
+
+---
+
+# Migrate
+
+## AppServiceProvider
+
+    - Comment before migrate //     public function boot(): void
+
+## Run db migration
+
+    - $php artisan migrate
+
+---
+
+# Mail: mailtrap.io
+
+---
+
+# Run Development server
+
+    php artisan serve
+    	- http://localhost/carrent-laravel/public/		- access carrental webapp
+    	- http://localhost/carrent-laravel/public/admin/		- access admin dashboard
+
+---
+
+# Code overview
+
+## Development main folders
+
+    -CRUD Controllers
+    	- app/Http/Controllers/CarRentalController	-contains carrental webpages controller
+    	- app/Http/Controllers/Admin		- contains all Admin controllers
+    	- app/Http/Controllers/Auth			- contains Authentications controllers
+    	 - database/migrations			 - contains all the database schema migrations
+    	 - app\Models\ 				- contains all the Eloquent models
+    	 - app\Mail\contactMail.php			- contains Envelope & mailTemplate
+    - Routes: routes/web.php
+    	- Show All Routes
+    		- $php artisan route:list
+    -AppService Provider
+    	-app\Providers\AppServiceProvider.php	- Define Globla Variable
+
+## Environment variables
+
+    - `.env` - Environment variables can be set in this file
+
+## **_Note_** : You can quickly set the database information and other variables in this file and have the application fully working.
+
+#DataBase overview - Tables name
+cars, categories,comments,messages,testimonials,users - Statements: - Eloquent ORM through
+Database/Eloquent/Models
+check db config: config/database.php
+
+    - DB Relationship
+    	- cars - categorties one to many
+
+    		categories table
+    			| colum     | Type     | Description                       |
+    			| :-------- | :------- | :-------------------------------- |
+    			| `id`      | interger| **Required**. Id Autoincrement
+    		cars table
+    			| column    | Type     | Description                       |
+    			| :-------- | :------- | :-------------------------------- |
+    			| `cat_id`  | integer  | **Required**. foreign key
+    	- comments - cars one to many
+    		cars table
+    			| colum    | Type     | Description                       |
+    			| :--------| :------- | :-------------------------------- |
+    			| `id`     | interger | **Required**. Id Autoincrement
+    		comments table
+    			| column     | Type     | Description                       |
+    			| :--------- | :------- | :-------------------------------- |
+    			| `car_id`   | integer  | **Required**. foreign key
+
+---
+
+# Contact
+
+Menna El Rouby: roubymenna@gmail.com
+linkedin: https://www.linkedin.com/in/menna-rouby/
+CarRental Project: https://github.com/MennaELRouby/carrent-laravel.git
