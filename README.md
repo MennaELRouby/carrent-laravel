@@ -9,13 +9,13 @@
 
 # Car Rental Web Application
 
-# Thanks for checking out the Car Rental , Through the Owner / Admin has a dashboard
+# Thanks for checking out the Car Rental, the Owner / Admin has a dashboard
 
-to add , edit, show the tables or delete the data of [car , users,categories of car, testimonials], and show frequent messages coming from the customers.
+to add, edit, show the tables, or delete the data of [car, users, categories of car, testimonials], and show frequent messages coming from the customers.
 
 # customers
 
-on other side the webapp has [Home , Listing , Info for each car, Testimonials, Blog, About, Contact] pages,customers can [Comments, send messages].
+on the other side, the web app has [Home, Listing, Info for each car, Testimonials, Blog, About, Contact] pages, and customers can [Comments, send messages].
 
 # Acknowledgements
 
@@ -28,9 +28,9 @@ on other side the webapp has [Home , Listing , Info for each car, Testimonials, 
 ## Requirements workspace
 
 -   Git bash
--   visualstudiocode - XAMPP control panel Apache HTTP Sever - Composer php dependency manager
+-   visual studio code - XAMPP control panel Apache HTTP Server - Composer php dependency manager
 -   OpenSSL PHP
--   laravel breeze
+-   Laravel breeze
 
 ---
 
@@ -38,7 +38,7 @@ on other side the webapp has [Home , Listing , Info for each car, Testimonials, 
 
 # Install Project
 
-## Clone repo in visual studio code
+## Clone repo in Visual Studio code
 
     $gh repo clone MennaELRouby/carrent-laravel
     cd xampp/htdocs/
@@ -54,7 +54,7 @@ on other side the webapp has [Home , Listing , Info for each car, Testimonials, 
     npm install
     npm run dev
 
-## Create enviroment config file
+## Create environment config file
 
     cp .env .example .env
 
@@ -69,7 +69,7 @@ on other side the webapp has [Home , Listing , Info for each car, Testimonials, 
     - ComposeSetup\bin
     - mysql\bin
 
-### create enviroment config file
+### Create environment config file
 
     - cp .env .example .env
     - vim .env
@@ -86,7 +86,7 @@ on other side the webapp has [Home , Listing , Info for each car, Testimonials, 
     MAIL_FROM_ADDRESS="roubymenna@gmail.com"
     MAIL_FROM_NAME="${APP_NAME}"
 
-    - DataBase Configuration
+    - Database Configuration
     DB_CONNECTION=mysql
     DB_HOST=127.0.0.1
     DB_PORT=3306
@@ -113,7 +113,7 @@ on other side the webapp has [Home , Listing , Info for each car, Testimonials, 
 
 ## AppServiceProvider
 
-**Make sure to comment the following function before running the migrations**
+**Make sure to comment on the following function before running the migrations**
 
     //public function boot(): void{}
 
@@ -129,11 +129,16 @@ on other side the webapp has [Home , Listing , Info for each car, Testimonials, 
 
 ---
 
-# Run Development server
+# Run the Development server through XAMPP-Control
 
-    php artisan serve
-    	- http://localhost/carrent-laravel/public/		        # access carrental webapp
+    	- http://localhost/carrent-laravel/public/		        # access carrental web app
     	- http://localhost/carrent-laravel/public/admin/		# access admin dashboard
+
+# or artisan serve
+
+        php artisan serve
+            -http://127.0.0.1:8000                            #access car rental web app
+            -http://127.0.0.1:8000/admin                      #access admin dashboard
 
 ---
 
@@ -142,12 +147,12 @@ on other side the webapp has [Home , Listing , Info for each car, Testimonials, 
 ## Development main folders
 
     -CRUD Controllers
-    	- app/Http/Controllers/CarRentalController	    # contains carrental webpages controller
+    	- app/Http/Controllers/CarRentalController	    # contains car rental webpages controller
     	- app/Http/Controllers/Admin		            # contains all Admin controllers
     	- app/Http/Controllers/Auth			            # contains Authentications controllers
     	 - database/migrations			                # contains all the database schema migrations
     	 - app\Models\ 				                    # contains all the Eloquent models
-    	 - app\Mail\contactMail.php			            # contains Envelope & mailTemplate
+    	 - app\Mail\contactMail.php			            # contains Envelope & email template
     - Routes: routes/web.php
     	- Show All Routes
     		- $php artisan route:list
@@ -161,16 +166,18 @@ on other side the webapp has [Home , Listing , Info for each car, Testimonials, 
 ## Parameters
 
     - active: in user table:
-        admins can enter dashboard by email verify or by Add user and change active to 1
+        admins can enter the dashboard by email verification or by Adding a user and changing active to 1
+
                     | column     | Type  | Description                       |
         			| :-------- | :------| :-------------------------------- |
         			| `Active`  | boolean| **Required**. If active = 1 user can enter Dashboard else 0 These credentials do not match our records.
 
     -published: in cars and testimonials tables
         can't publish any recodes unless published = 1
+
                     | column     | Type  | Description                       |
         			| :-------- | :------| :-------------------------------- |
-        			| `published`  | boolean| **Required**. If only published = 1 row recodes can show on the carrental website.
+        			| `published`  | boolean| **Required**. If published = 1 row recodes can show on the carrental website.
 
 ## **_Note_** : You can quickly set the database information and other variables in this file and have the application fully working.
 
@@ -178,7 +185,7 @@ on other side the webapp has [Home , Listing , Info for each car, Testimonials, 
 
 ## Tables names
 
-    (cars, categories,comments,messages,testimonials,users)
+    (cars, categories, comments, messages, testimonials, users)
 
 ## DB Design:
 
@@ -188,10 +195,10 @@ on other side the webapp has [Home , Listing , Info for each car, Testimonials, 
             config/database.php
 
     - DB Relationship
-        	- cars - categorties one to many
+        	- cars - categories one to many
 
         		categories table
-        			| colum     | Type     | Description                       |
+        			| column     | Type     | Description                       |
         			| :-------- | :------- | :-------------------------------- |
         			| `id`      | interger| **Required**. Id Autoincrement
         		cars table
@@ -202,7 +209,7 @@ on other side the webapp has [Home , Listing , Info for each car, Testimonials, 
         	- comments - cars one to many
 
         		cars table
-        			| colum    | Type     | Description                       |
+        			| column    | Type     | Description                       |
         			| :--------| :------- | :-------------------------------- |
         			| `id`     | interger | **Required**. Id Autoincrement
         		comments table
@@ -212,10 +219,16 @@ on other side the webapp has [Home , Listing , Info for each car, Testimonials, 
 
 ---
 
+# Route List
+
+## [CMD] php artisan route:list --json
+
+---
+
 # Contact
 
 # Menna Elrouby
 
-    - Mail: roubymenna@gmail.com
-    - [Linkedin](https://www.linkedin.com/in/menna-rouby/)
-    - [github](https://github.com/MennaELRouby/)
+     - E-Mail: roubymenna@gmail.com
+       [LinkedIN](https://www.linkedin.com/in/menna-rouby)
+       [GitHub](https://github.com/MennaELRouby)
